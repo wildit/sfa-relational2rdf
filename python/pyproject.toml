@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relational2rdf"
+version = "1.0.0"
+description = "Convert relational SIARD archives to RDF knowledge graphs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "rdflib>=7.0",
+    "openai>=1.30",
+    "httpx>=0.27",
+    "lxml>=5.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+relational2rdf = "relational2rdf.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["relational2rdf*"]
